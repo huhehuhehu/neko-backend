@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/post/search', [PostController::class, 'search']);
 Route::put('/post/reorder/{id}', [PostController::class, 'reorder']);
 Route::resource('/post', PostController::class);

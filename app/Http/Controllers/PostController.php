@@ -203,4 +203,23 @@ class PostController extends Controller
         ], 404);
 
     }
+
+    public function search()
+    {
+
+        //find post by param
+        $posts = Post::orderBy('order');
+        if(request('param')) 
+        $posts
+        ->where('title','like','%'.request('param').'%')
+        ->orWhere('description','like','%'.request('param').'%');
+
+        //make response JSON
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail Data Post',
+            'data'    => $posts->get(),
+        ], 200);
+
+    }
 }
