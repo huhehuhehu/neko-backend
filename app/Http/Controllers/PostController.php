@@ -222,4 +222,18 @@ class PostController extends Controller
         ], 200);
 
     }
+
+    public function length()
+    {
+        //get data from table posts
+        $length = sizeof(Post::orderBy('order')->get());
+
+        //make response JSON
+        return response()->json([
+            'success' => true,
+            'message' => 'List Data Post',
+            'data'    => $length  
+        ], 200);
+
+    }
 }
