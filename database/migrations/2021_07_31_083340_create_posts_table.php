@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->bigInteger('order')->default(0);
             $table->string('path',2083);
-            $table->text('description')->default('');
+            $table->text('description');
             $table->timestamps();
         });
 
